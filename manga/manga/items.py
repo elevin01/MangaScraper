@@ -7,6 +7,7 @@ import scrapy
 
 
 class MangaItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
+    title = scrapy.Field()
+    latest_chapter = scrapy.Field()
+    latest_chapter_link = scrapy.Field()
     pass
