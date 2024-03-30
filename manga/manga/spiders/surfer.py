@@ -34,6 +34,7 @@ class MangaSpider(scrapy.Spider):
 
     def __init__(self, manga_title=None, *args, **kwargs):
         super(MangaSpider, self).__init__(*args, **kwargs)
+        manga_title = manga_title.replace(" ", "-")
         self.start_urls = [f'https://mangaclash.com/manga/{manga_title}/']
 
     def parse(self, response):

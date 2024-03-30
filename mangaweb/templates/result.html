@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result</title>
+</head>
+<body>
+    <h1>Manga Data</h1>
+
+    {% for data in manga_data %}
+        <div>
+            <p>Title: {{ data.title.strip() }}</p>
+            <p>Latest Chapter: {{ data.latest_chapter.strip() }}</p>
+            <p>Latest Chapter Link: <a href="{{ data.latest_chapter_link.strip() }}">{{ data.latest_chapter_link.strip() }}</a></p>
+        </div>
+    {% endfor %}
+</body>
+</html>
