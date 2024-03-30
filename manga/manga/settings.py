@@ -12,7 +12,6 @@ BOT_NAME = "manga"
 SPIDER_MODULES = ["manga.spiders"]
 NEWSPIDER_MODULE = "manga.spiders"
 
-
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = "manga (+http://www.yourdomain.com)"
 

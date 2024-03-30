@@ -11,6 +11,7 @@ def index():
 def scrape():
     manga_title = request.form['manga_title']
     manga_data = scrape_manga(manga_title)
+    #print(f"Is it here?{manga_data}")
     return render_template('result.html', manga_data=manga_data)
 
 if __name__ == '__main__':
