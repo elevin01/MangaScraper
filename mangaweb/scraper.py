@@ -2,6 +2,15 @@ from manga.manga.spiders.surfer import MangaSpider
 from scrapy.crawler import CrawlerProcess
 from scrapy.signalmanager import dispatcher
 from scrapy import signals
+import re
+
+def extract_chapter_number(input_string):
+    pattern = r'Chapter (\d+(\.\d+)?)'
+    match = re.search(pattern, input_string)
+    if match:
+        return match.group(1)
+    else:
+        return None
 
 def scrape_manga(manga_title):
     process = CrawlerProcess()
@@ -22,7 +31,10 @@ def scrape_manga(manga_title):
 
     # Check if scraped_items is not empty, otherwise return default values
     if scraped_items:
-        print(f"IF this has anything: {scraped_items}")
+        for item in scraped_items:
+            chapter_number = extract_chapter_number(item['latest_chapter'])
+            if chapter_number:
+                item['latest_chapter'] = chapter_number
         return scraped_items
     else:
         # Return default values
