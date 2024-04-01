@@ -13,7 +13,7 @@ def extract_chapter_number(input_string):
         return None
 
 def fixlinks(input):
-    pattern = r'[,":?]'
+    pattern = r'[,":?~!.\']'
     input = re.sub(pattern, "", input)
     return input
 
