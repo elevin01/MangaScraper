@@ -12,11 +12,19 @@ def extract_chapter_number(input_string):
     else:
         return None
 
+def fixlinks(input):
+    pattern = r'[,":?]'
+    input = re.sub(pattern, "", input)
+    return input
+
 def scrape_manga(manga_title):
     process = CrawlerProcess()
 
     # Create a list to store scraped items
     scraped_items = []
+
+    # Gets rid of special characters
+    manga_title = fixlinks(manga_title)
 
     # Define a callback function to capture scraped items
     def capture_item(item, response, spider):
